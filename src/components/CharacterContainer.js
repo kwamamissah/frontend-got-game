@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 
+import CharacterCard from './CharacterCard.js'
+
 const API = `http://localhost:3000/characters`
 
 export default class CharacterContainer extends Component {
@@ -17,7 +19,7 @@ export default class CharacterContainer extends Component {
   render() {
     return(
       <div>
-        {this.state.characters.map(character => <h4>{character.name}</h4>)}
+        {this.state.characters.map(character => <CharacterCard character={character} key={character.id}/>)}
       </div>
     )
   }
