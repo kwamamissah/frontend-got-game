@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Container } from 'semantic-ui-react'
 
 import CharacterContainer from './CharacterContainer.js'
 import Streak from './Streak.js'
