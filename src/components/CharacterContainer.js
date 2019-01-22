@@ -7,7 +7,7 @@ const API = `http://localhost:3000/characters`
 export default class CharacterContainer extends Component {
 
   state = {
-    characters: [2],
+    characters: [null],
     viewed: []
   }
 
@@ -41,11 +41,20 @@ export default class CharacterContainer extends Component {
     return unviewed[number]
   }
 
+  selectCharacter = () => {
+    if (this.state.characters[0] === null) {
+      return <div>loading...</div>
+    }else if (this.state.viewed.length === 0) {
+      return <CharacterCard character={this.renderFirstCharacter()} />
+    } else {
+      return <CharacterCard character={this.renderNextCharacter()} />
+    }
+  }
 
   render() {
     return(
       <div>
-      {(this.state.viewed.length === 0) ? <CharacterCard character={this.renderFirstCharacter()} /> : <CharacterCard character={this.renderNextCharacter()} />}
+        {this.selectCharacter()}
       </div>
     )
   }
