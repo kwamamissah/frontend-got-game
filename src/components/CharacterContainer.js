@@ -64,9 +64,9 @@ export default class CharacterContainer extends Component {
     if (this.state.characters[0] === null) {
       return <div>loading...</div>
     } else if (this.state.viewed.length === 0) {
-      return <CharacterCard handleClick={this.handleClick} character={this.renderFirstCharacter()} />
+      return <CharacterCard handleClick={this.handleClick} character={this.renderFirstCharacter()} streak={this.state.viewed.length} />
     } else {
-      return <CharacterCard handleClick={this.handleClick} character={this.renderNextCharacter()} />
+      return <CharacterCard handleClick={this.handleClick} character={this.renderNextCharacter()} streak={this.state.viewed.length} />
     }
   }
 

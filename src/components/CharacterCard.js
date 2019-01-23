@@ -20,6 +20,9 @@ const CharacterCard = (props) => {
           </Button>
         </div>
       </Card.Content>
+      <Card.Content>
+        <Card.Header>Streak: {props.streak}</Card.Header>
+      </Card.Content>
     </Card>
   )
 }
