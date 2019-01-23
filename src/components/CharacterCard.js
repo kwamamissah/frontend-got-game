@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { Card, Button, Image, Icon } from 'semantic-ui-react'
+import { Card, Button, Image } from 'semantic-ui-react'
 
 const CharacterCard = (props) => {
 

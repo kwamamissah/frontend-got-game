@@ -42,18 +42,12 @@ export default class CharacterContainer extends Component {
     return c
   }
 
-  // based on which button is clicked
-  // check with button is clicked
-  // compare with Character "alive" status
-
-  // got error, viewed array is empty so we got undefined
-
-  // somewhere, concat c into the viewed array
 
   handleClick = (e, c) => {
-    if ((e.target.name === "alive") && (c.alive) || !(e.target.name === "alive") && !(c.alive)) {
+    if ((e.target.name === "alive") && (c.alive))  {
       this.setState({ viewed: this.state.viewed.concat(c)})
-      console.log(this.state.viewed)
+    } else if (!(e.target.name === "alive") && !(c.alive)) {
+      this.setState({ viewed: this.state.viewed.concat(c)})
     } else {
       console.log('game over', e.target.name, c.alive)
     }
