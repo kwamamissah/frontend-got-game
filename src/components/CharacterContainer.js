@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 
 import CharacterCard from './CharacterCard.js'
+import GameOver from './GameOver.js'
 
 const API = `http://localhost:3000/characters`
 
@@ -9,7 +10,8 @@ export default class CharacterContainer extends Component {
   state = {
     characters: [null],
     viewed: [],
-    character: null
+    character: null,
+    gameOver: false
   }
 
   componentDidMount(){
@@ -50,6 +52,8 @@ export default class CharacterContainer extends Component {
       this.setState({ viewed: this.state.viewed.concat(c)})
     } else {
       console.log('game over', e.target.name, c.alive)
+      this.setState({ gameOver: true })
+
     }
   }
 
@@ -57,11 +61,17 @@ export default class CharacterContainer extends Component {
   selectCharacter = () => {
     if (this.state.characters[0] === null) {
       return <div>loading...</div>
+    } else if (this.state.gameOver) {
+        return <GameOver />
     } else if (this.state.viewed.length === 0) {
       return <CharacterCard handleClick={this.handleClick} character={this.renderFirstCharacter()} streak={this.state.viewed.length} />
     } else {
       return <CharacterCard handleClick={this.handleClick} character={this.renderNextCharacter()} streak={this.state.viewed.length} />
     }
+  }
+
+  restartGame = () => {
+    this.setState({ viewed: [] })
   }
 
   render() {
