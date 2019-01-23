@@ -51,9 +51,7 @@ export default class CharacterContainer extends Component {
     } else if (!(e.target.name === "alive") && !(c.alive)) {
       this.setState({ viewed: this.state.viewed.concat(c)})
     } else {
-      console.log('game over', e.target.name, c.alive)
       this.setState({ gameOver: true })
-
     }
   }
 
@@ -62,7 +60,7 @@ export default class CharacterContainer extends Component {
     if (this.state.characters[0] === null) {
       return <div>loading...</div>
     } else if (this.state.gameOver) {
-        return <GameOver />
+        return <GameOver restartGame={this.restartGame} />
     } else if (this.state.viewed.length === 0) {
       return <CharacterCard handleClick={this.handleClick} character={this.renderFirstCharacter()} streak={this.state.viewed.length} />
     } else {
@@ -71,7 +69,7 @@ export default class CharacterContainer extends Component {
   }
 
   restartGame = () => {
-    this.setState({ viewed: [] })
+    this.setState({ viewed: [], gameOver: false })
   }
 
   render() {
