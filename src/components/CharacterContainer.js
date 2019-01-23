@@ -8,7 +8,8 @@ export default class CharacterContainer extends Component {
 
   state = {
     characters: [null],
-    viewed: []
+    viewed: [],
+    character: null
   }
 
   componentDidMount(){
@@ -18,7 +19,7 @@ export default class CharacterContainer extends Component {
   }
 
   getUnviewed = () => {
-    this.state.characters.filter(character => {
+    return this.state.characters.filter(character => {
       return !this.state.viewed.includes(character)
     });
   }
@@ -30,24 +31,42 @@ export default class CharacterContainer extends Component {
   renderFirstCharacter = () => {
     let characters = this.state.characters
     let num = this.getRandomInt(characters.length)
-    console.log(num, characters, characters[num])
-    return characters[num]
+    let c = characters[num]
+    return c
   }
 
   renderNextCharacter = () => {
     let unviewed = this.getUnviewed()
-    let number = this.getRandomInt(unviewed.length)
-    console.log(number, 'hi from unviewed')
-    return unviewed[number]
+    let num = this.getRandomInt(unviewed.length)
+    let c = unviewed[num]
+    return c
   }
+
+  // based on which button is clicked
+  // check with button is clicked
+  // compare with Character "alive" status
+
+  // got error, viewed array is empty so we got undefined
+
+  // somewhere, concat c into the viewed array
+
+  handleClick = (e, c) => {
+    if ((e.target.name === "alive") && (c.alive) || !(e.target.name === "alive") && !(c.alive)) {
+      this.setState({ viewed: this.state.viewed.concat(c)})
+      console.log(this.state.viewed)
+    } else {
+      console.log('game over', e.target.name, c.alive)
+    }
+  }
+
 
   selectCharacter = () => {
     if (this.state.characters[0] === null) {
       return <div>loading...</div>
-    }else if (this.state.viewed.length === 0) {
-      return <CharacterCard character={this.renderFirstCharacter()} />
+    } else if (this.state.viewed.length === 0) {
+      return <CharacterCard handleClick={this.handleClick} character={this.renderFirstCharacter()} />
     } else {
-      return <CharacterCard character={this.renderNextCharacter()} />
+      return <CharacterCard handleClick={this.handleClick} character={this.renderNextCharacter()} />
     }
   }
 

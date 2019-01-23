@@ -12,10 +12,10 @@ const CharacterCard = (props) => {
       </Card.Content>
       <Card.Content extra>
         <div className='ui two buttons'>
-          <Button basic color='green'>
+          <Button onClick={(e) => props.handleClick(e, props.character)} name="alive" basic color='green'>
             Alive
           </Button>
-          <Button basic color='red'>
+          <Button onClick={(e) => props.handleClick(e, props.character)} name="dead" basic color='red'>
             Dead
           </Button>
         </div>
