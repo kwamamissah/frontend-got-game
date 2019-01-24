@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 
 import CharacterCard from './CharacterCard.js'
+import StartGame from './StartGame.js'
 import GameOver from './GameOver.js'
 
 const API = `http://localhost:3000/characters`
@@ -11,7 +12,8 @@ export default class CharacterContainer extends Component {
     characters: [null],
     viewed: [],
     character: null,
-    gameOver: false
+    gameOver: false,
+    newGame: true
   }
 
   componentDidMount(){
@@ -19,6 +21,8 @@ export default class CharacterContainer extends Component {
     .then(resp => resp.json())
     .then(json => this.setState({ characters: json }))
   }
+
+
 
   getUnviewed = () => {
     return this.state.characters.filter(character => {
@@ -59,6 +63,8 @@ export default class CharacterContainer extends Component {
   selectCharacter = () => {
     if (this.state.characters[0] === null) {
       return <div>loading...</div>
+    }else if (this.state.newGame) {
+      return <StartGame startGame={this.startGame} />
     } else if (this.state.gameOver) {
         return <GameOver restartGame={this.restartGame} />
     } else if (this.state.viewed.length === 0) {
@@ -66,6 +72,10 @@ export default class CharacterContainer extends Component {
     } else {
       return <CharacterCard handleClick={this.handleClick} character={this.renderNextCharacter()} streak={this.state.viewed.length} />
     }
+  }
+
+  startGame = () => {
+    this.setState({ newGame: false })
   }
 
   restartGame = () => {
