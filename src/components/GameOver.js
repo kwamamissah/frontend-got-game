@@ -12,6 +12,7 @@ const GameOver = (props) => {
       frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
       allowfullscreen></iframe>
       <br />
+      <Header inverted size="huge"> Your Streak: {props.streak}</Header>
       <Button onClick={() => props.restartGame()}> Restart Game </Button>
     </Container>
 

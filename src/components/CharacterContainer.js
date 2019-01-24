@@ -63,10 +63,12 @@ export default class CharacterContainer extends Component {
   selectCharacter = () => {
     if (this.state.characters[0] === null) {
       return <div>loading...</div>
-    }else if (this.state.newGame) {
+    } else if (this.state.newGame) {
       return <StartGame startGame={this.startGame} />
     } else if (this.state.gameOver) {
-        return <GameOver restartGame={this.restartGame} />
+        return <GameOver streak={this.state.viewed.length} restartGame={this.restartGame} />
+    } else if (this.state.viewed.length === this.state.characters.length) {
+        return <GameOver streak={this.state.viewed.length} restartGame={this.restartGame} />
     } else if (this.state.viewed.length === 0) {
       return <CharacterCard handleClick={this.handleClick} character={this.renderFirstCharacter()} streak={this.state.viewed.length} />
     } else {
