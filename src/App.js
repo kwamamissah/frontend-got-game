@@ -1,13 +1,16 @@
 import React, { Component } from 'react';
 
 import GameContainer from './components/GameContainer.js'
-import "./styles.css";
+
+import { Segment } from 'semantic-ui-react'
 
 class App extends Component {
 
   render() {
     return (
-      <GameContainer />
+      <Segment inverted style= {{ 'height': "800px"}}>
+        <GameContainer />
+      </Segment>
     );
   }
 }
