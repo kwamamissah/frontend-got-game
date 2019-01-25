@@ -4,7 +4,6 @@ import { Button, Container, Segment, Header } from 'semantic-ui-react'
 
 let image = `https://media.giphy.com/media/d97OPMEimWGBi/giphy.gif`
 const mainBg = {
-  // marginTop: '40px',
   background: `url(${image})`,
   backgroundRepeat: 'no-repeat',
   backgroundSize: 'cover',
@@ -12,11 +11,15 @@ const mainBg = {
   height: '800px'
 }
 
+const margin = {
+  marginTop: '40px'
+}
+
 const GameOver = (props) => {
 
   return(
     <Segment style={ mainBg }>
-      <Container className='style' textAlign='center' style={{'margin-top': '40px'}}>
+      <Container className='style' textAlign='center' style={ margin } >
         <a href="https://fontmeme.com/game-of-thrones-font/">
         <img src="https://fontmeme.com/permalink/190124/a5cecfa2d866f447e84b2b9dc76849a7.png"
         alt="game-of-thrones-font" border="0" /></a>
@@ -27,10 +30,10 @@ const GameOver = (props) => {
         allowfullscreen></iframe>
         <br />
         <br />
+        <Header inverted size="huge"> Your Streak: {props.streak} </Header>
         <Button onClick={() => props.restartGame()}> Restart Game </Button>
       </Container>
     </Segment>
-
 
   )
 }

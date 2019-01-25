@@ -66,7 +66,7 @@ export default class CharacterContainer extends Component {
     }else if (this.state.newGame) {
       return <StartGame startGame={this.startGame} />
     } else if (this.state.gameOver) {
-        return <GameOver restartGame={this.restartGame} />
+        return <GameOver restartGame={this.restartGame} streak={this.state.viewed.length} />
     } else if (this.state.viewed.length === 0) {
       return <CharacterCard handleClick={this.handleClick} character={this.renderFirstCharacter()} streak={this.state.viewed.length} />
     } else {
