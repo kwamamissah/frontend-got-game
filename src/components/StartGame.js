@@ -16,7 +16,7 @@ const margin = {
   position: 'absolute',
   bottom: '10px',
   top: '400px',
-  left: '375px',
+  left: '350px',
 }
 
 const StartGame = (props) => {

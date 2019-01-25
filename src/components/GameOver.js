@@ -30,7 +30,7 @@ const GameOver = (props) => {
         allowfullscreen></iframe>
         <br />
         <br />
-        <Header inverted size="huge"> Your Streak: {props.streak} </Header>
+        <Header inverted size="huge"> Final Score: {props.streak} </Header>
         <Button onClick={() => props.restartGame()}> Restart Game </Button>
       </Container>
     </Segment>

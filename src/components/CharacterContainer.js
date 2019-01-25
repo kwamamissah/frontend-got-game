@@ -67,7 +67,7 @@ export default class CharacterContainer extends Component {
 
   selectCharacter = () => {
     if (this.state.characters[0] === null) {
-      return <PacmanLoader className='sweet-loading' css={css} sizeUnit={"px"} size={150} color={'#123abc'} loading={this.state.loading} />
+      return <PacmanLoader className='sweet-loading' css={css} sizeUnit={"px"} size={150} color={'#123abc'} />
     }else if (this.state.newGame) {
       return <StartGame startGame={this.startGame} />
     } else if (this.state.gameOver) {
