@@ -17,10 +17,15 @@ const GameOver = (props) => {
   return(
     <Segment style={ mainBg }>
       <Container className='style' textAlign='center' style={{'margin-top': '40px'}}>
-        <Header inverted> Game Over </Header>
+        <a href="https://fontmeme.com/game-of-thrones-font/">
+        <img src="https://fontmeme.com/permalink/190124/a5cecfa2d866f447e84b2b9dc76849a7.png"
+        alt="game-of-thrones-font" border="0" /></a>
+        <br />
+        <br />
         <iframe title='GOT' width="560" height="315" src="https://www.youtube.com/embed/0MGnIUn30FU?&autoplay=1"
         frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
         allowfullscreen></iframe>
+        <br />
         <br />
         <Button onClick={() => props.restartGame()}> Restart Game </Button>
       </Container>
