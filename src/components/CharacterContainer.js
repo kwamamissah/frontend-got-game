@@ -1,10 +1,15 @@
 import React, { Component } from 'react'
+import { PacmanLoader } from 'react-spinners';
+import { css } from '@emotion/core';
 
 import CharacterCard from './CharacterCard.js'
 import StartGame from './StartGame.js'
 import GameOver from './GameOver.js'
 
 const API = `http://localhost:3000/characters`
+
+// const override = css
+
 
 export default class CharacterContainer extends Component {
 
@@ -62,7 +67,7 @@ export default class CharacterContainer extends Component {
 
   selectCharacter = () => {
     if (this.state.characters[0] === null) {
-      return <div>loading...</div>
+      return <PacmanLoader className='sweet-loading' css={css} sizeUnit={"px"} size={150} color={'#123abc'} loading={this.state.loading} />
     }else if (this.state.newGame) {
       return <StartGame startGame={this.startGame} />
     } else if (this.state.gameOver) {

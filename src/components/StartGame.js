@@ -12,7 +12,11 @@ const mainBg = {
 }
 
 const margin = {
-  marginTop: '40px'
+  marginTop: '40px',
+  position: 'absolute',
+  bottom: '10px',
+  top: '400px',
+  left: '375px',
 }
 
 const StartGame = (props) => {
@@ -21,7 +25,7 @@ const StartGame = (props) => {
     <Segment style={ mainBg }>
       <Container className='style' textAlign='center' style={ margin }>
         <a href="https://fontmeme.com/game-of-thrones-font/">
-        <img src="https://fontmeme.com/permalink/190125/655754f96ee88df12f250d250f2bf5b5.png"
+          <img src="https://fontmeme.com/permalink/190125/a8bd38f5791d4f59320926097af652f6.png"
           alt="game-of-thrones-font" border="0" /></a>
         <br />
         <Button onClick={() => props.startGame()}>Start Game</Button>
