@@ -1,0 +1,11 @@
+body {
+  /* background: url("http://gph.is/1cqvB0g"); */
+
+}
+
+export default const mainBg = {
+  /* backgroundImage: 'url("http://gph.is/1cqvB0g")'; */
+  backgroundRepeat: 'no-repeat';
+  backgroundSize: 'cover';
+  backgroundPosition: 'center';
+}
